@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">User Register</string>
+    <string name="name">Имя:</string>
+    <string name="lastname">Фамилия:</string>
+    <string name="age">Возраст:</string>
+    <string name="sex">Пол:</string>
+    <string name="btn_add_user">Добавить пользователя</string>
+    <string-array name="sex">
+        <item>Мужской</item>
+        <item>Женский</item>
+    </string-array>
+</resources>
