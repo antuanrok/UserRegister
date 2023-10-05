@@ -37,10 +37,10 @@ public class AddUserActivity extends AppCompatActivity {
     }
 
     public void onClickAddUser(View view) {
-        String t_name = editTextName.getText().toString();
-        String t_lastname = editTextLastName.getText().toString();
+        String t_name = editTextName.getText().toString().trim();
+        String t_lastname = editTextLastName.getText().toString().trim();
         int t_age = Integer.parseInt(editTextAge.getText().toString());
-        String t_sex = spinnerSex.getSelectedItem().toString();
+        String t_sex = spinnerSex.getSelectedItem().toString().trim();
         if (!t_name.isEmpty() && !t_lastname.isEmpty() && t_age > 0 && !t_sex.isEmpty()) {
             Intent intent = new Intent(this, MainActivity.class);
             intent.putExtra("name", t_name);

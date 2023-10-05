@@ -45,7 +45,7 @@ public class Presenter {
         db.collection(DB_NAME).addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                if (error != null) {
+                /*if (error != null) {
                     view.showError(error.getMessage());
                     return;
                 }
@@ -62,6 +62,11 @@ public class Presenter {
                          }
                         }
                     view.showData(users);
+                }*/
+                if (value != null && !value.isEmpty()) {
+                    users.clear();
+                    users = value.toObjects(User.class);
+                    view.showData(users);
                 }
             }
         });
@@ -71,14 +76,14 @@ public class Presenter {
 
         User user = new User(name, lastname, age, sex);
 
-        Map<String, Object> data = new HashMap<>();
+        /*Map<String, Object> data = new HashMap<>();
         data.put(KEY_NAME, user.getName());
         data.put(KEY_LAST_NAME, user.getLastname());
         data.put(KEY_AGE, user.getAge());
-        data.put(KEY_SEX, user.getSex());
+        data.put(KEY_SEX, user.getSex());*/
 
         db.collection(DB_NAME)
-                .add(data)
+                .add(user)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
