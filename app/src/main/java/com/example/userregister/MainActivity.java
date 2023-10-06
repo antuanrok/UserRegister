@@ -24,14 +24,12 @@ public class MainActivity extends AppCompatActivity implements UserListView {
     private UserAdapter adapter;
     public Presenter presenter;
 
-    private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         presenter = new Presenter(this);
-        //db = FirebaseFirestore.getInstance();
         recyclerView = findViewById(R.id.recyclerViewUsers);
         adapter = new UserAdapter();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
